@@ -2,19 +2,6 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-   <style>
-  .netlify-badge,
-  [data-netlify-badge],
-  iframe[src*="netlify"],
-  div[class*="netlify"],
-  #netlify-badge-container,
-  netlify-drawer {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-  }
-</style>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GBA Wellness Club — Online Yoga, Sculpt, Strength, Pilates</title>
 <meta name="description" content="Yoga, sculpt, strength, pilates ve meditasyon; hepsi tek bir online kulüpte. Tüm dersler canlı. Eğitmen Gizem Berra Acar. İlk dersin ücretsiz.">
@@ -83,16 +70,10 @@
   --ease:cubic-bezier(.22,.61,.36,1);
 
   --img-hero:url("img/hero.jpg");
+  --img-herom:url("img/herom.jpg");
   --img-band:url("img/band.jpg");
-  --img-class:url("img/class.jpg");
   --img-close:url("img/close.jpg");
   --img-t1:url("img/t1.jpg");
-  --img-ev1:url("img/ev1.jpg");
-  --img-ev2:url("img/ev2.jpg");
-  --img-ev3:url("img/ev3.jpg");
-  --img-ev4:url("img/ev4.jpg");
-  --img-ev5:url("img/ev5.jpg");
-  --img-ev6:url("img/ev6.jpg");
 }
 
 *{box-sizing:border-box}
@@ -203,10 +184,10 @@ section{padding:104px 0}
   from{transform:scale(1.00) translate3d(0,0,0)}
   to{transform:scale(1.085) translate3d(-0.9%,-0.6%,0)}
 }
-.hero__scrim{position:absolute;inset:0;background:linear-gradient(96deg,rgba(255,254,251,.95) 0%,rgba(255,254,251,.89) 28%,rgba(255,254,251,.50) 52%,rgba(255,254,251,.05) 78%,rgba(255,254,251,0) 100%)}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(96deg,rgba(255,254,251,.96) 0%,rgba(255,254,251,.92) 30%,rgba(255,254,251,.62) 42%,rgba(255,254,251,.12) 56%,rgba(255,254,251,0) 68%)}
 @media (max-width:860px){
-  .hero__img{background-position:70% 30%}
-  .hero__scrim{background:linear-gradient(180deg,rgba(255,254,251,.30) 0%,rgba(255,254,251,.72) 30%,rgba(255,254,251,.86) 52%,rgba(255,254,251,.55) 78%,rgba(255,254,251,.12) 100%)}
+  .hero__img{background-image:var(--img-herom);background-position:center 62%}
+  .hero__scrim{background:linear-gradient(180deg,rgba(255,254,251,.55) 0%,rgba(255,254,251,.88) 26%,rgba(255,254,251,.90) 46%,rgba(255,254,251,.38) 68%,rgba(255,254,251,0) 86%)}
 }
 /* DİKKAT: bu öğe aynı zamanda .wrap — kısayol 'padding' yan boşlukları
    sıfırlıyordu. Sadece dikey boşluk verilir, yan boşluk .wrap'ten gelir. */
@@ -249,8 +230,13 @@ section{padding:104px 0}
 @media (max-width:520px){.teachers{grid-template-columns:1fr}}
 
 /* ── önizleme ── */
-.preview{position:relative;overflow:hidden;background:var(--bg-warm);min-height:clamp(440px,60svh,640px);min-height:clamp(440px,60dvh,640px);display:flex;align-items:flex-end;padding:0}
-.preview__img{position:absolute;inset:0;background-image:var(--img-band);background-size:cover;background-position:center 40%}
+.preview{position:relative;overflow:hidden;background:var(--bg-warm);min-height:clamp(480px,82svh,920px);min-height:clamp(480px,82dvh,920px);display:flex;align-items:flex-end;padding:0}
+.preview__img{position:absolute;inset:0;background-image:var(--img-band);background-size:cover;background-position:center 76%}
+/* dar ekranda bant alçalır ve kadraj aşağı kayar: gökyüzü baskın olmasın */
+@media (max-width:760px){
+  .preview{min-height:clamp(420px,58svh,540px);min-height:clamp(420px,58dvh,540px)}
+  .preview__img{background-position:center 100%}
+}
 .preview__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,20,15,0) 30%,rgba(21,20,15,.44) 66%,rgba(21,20,15,.82) 100%)}
 .preview__in{position:relative;width:100%;padding-top:54px;padding-bottom:54px}
 .preview__meta{font-family:var(--ff-display);font-size:.68rem;font-weight:600;letter-spacing:.17em;color:rgba(255,255,255,.9)}
@@ -317,7 +303,7 @@ section{padding:104px 0}
 .story__t p{font-size:1.05rem;line-height:1.75;color:var(--fg-soft);margin:0 0 22px}
 .story__t p:last-child{margin-bottom:0}
 .story__q{font-family:var(--ff-display);font-size:clamp(1.25rem,2.4vw,1.7rem);font-weight:600;letter-spacing:-.03em;line-height:1.32;color:var(--fg);border-left:2px solid var(--accent);padding:2px 0 2px 22px;margin:32px 0}
-.story__img{min-height:clamp(380px,54svh,580px);min-height:clamp(380px,54dvh,580px);background-image:var(--img-t1);background-size:cover;background-position:center 22%;position:sticky;top:92px}
+.story__img{min-height:clamp(380px,54svh,580px);min-height:clamp(380px,54dvh,580px);background-image:var(--img-t1);background-size:cover;background-position:center 18%;position:sticky;top:92px}
 @media (max-width:900px){.story__img{position:static;min-height:330px}}
 .beats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:34px 0}
 .beats span{background:#fff;padding:24px 20px;font-family:var(--ff-display);font-size:1rem;font-weight:600;letter-spacing:-.02em}
@@ -581,7 +567,7 @@ section{padding:104px 0}
           <p class="lede">GBA; Sculpt, Yoga, Strength, Pilates ve Meditation’ı tek çatı altında buluşturan bir wellness topluluğu.</p>
           <button class="btn btn--ink" data-go="/hakkinda">HİKÂYEMİ OKU</button>
         </div>
-        <div class="free__img" style="background-image:var(--img-t1);background-position:center 28%" role="img" aria-label="Gizem Berra Acar"></div>
+        <div class="free__img" style="background-image:var(--img-t1);background-position:center 14%" role="img" aria-label="Gizem Berra Acar"></div>
       </div>
     </div>
   </section>
@@ -868,24 +854,24 @@ var KISILER = [
 /* "Bugün neye ihtiyacın var" önerileri.
    Yalnızca haftalık programda gerçekten olan dersler kullanılır. */
 var IHTIYAC = {
-  move:   [["PAZARTESİ · 07:00 · 60 DK","Yoga Flow + Meditation"],
-           ["PAZARTESİ · 20:30 · 60 DK","Full Body Sculpt"],
-           ["CUMARTESİ · 10:00 · 60 DK","Saturday Sculpt"]],
-  slow:   [["ÇARŞAMBA · 07:00 · 60 DK","Gentle Flow + Meditation"],
-           ["CUMA · 07:00 · 60 DK","Slow Flow + Meditation"],
-           ["SALI · 07:00 · 60 DK","Mobility + Meditation"]],
-  strong: [["SALI · 20:30 · 60 DK","Strength · Lower Body"],
-           ["PERŞEMBE · 20:30 · 60 DK","Strength · Upper Body"],
-           ["ÇARŞAMBA · 20:30 · 60 DK","Core & More Sculpt"]],
-  reset:  [["CUMARTESİ · 10:00 · 60 DK","Saturday Sculpt"],
-           ["ÇARŞAMBA · 07:00 · 60 DK","Gentle Flow + Meditation"],
-           ["CUMA · 07:00 · 60 DK","Slow Flow + Meditation"]],
-  sleep:  [["CUMA · 07:00 · 60 DK","Slow Flow + Meditation"],
-           ["PERŞEMBE · 07:00 · 60 DK","Mobility + Meditation"],
-           ["ÇARŞAMBA · 07:00 · 60 DK","Gentle Flow + Meditation"]],
-  ground: [["SALI · 07:00 · 60 DK","Mobility + Meditation"],
-           ["PAZARTESİ · 07:00 · 60 DK","Yoga Flow + Meditation"],
-           ["PERŞEMBE · 07:00 · 60 DK","Mobility + Meditation"]]
+  move:   [["PAZARTESİ · 07:00 · 60 DK","Yoga Flow + Meditation","Pazartesi 07:00"],
+           ["PAZARTESİ · 20:30 · 60 DK","Full Body Sculpt","Pazartesi 20:30"],
+           ["CUMARTESİ · 10:00 · 60 DK","Saturday Sculpt","Cumartesi 10:00"]],
+  slow:   [["ÇARŞAMBA · 07:00 · 60 DK","Gentle Flow + Meditation","Çarşamba 07:00"],
+           ["CUMA · 07:00 · 60 DK","Slow Flow + Meditation","Cuma 07:00"],
+           ["SALI · 07:00 · 60 DK","Mobility + Meditation","Salı 07:00"]],
+  strong: [["SALI · 20:30 · 60 DK","Strength · Lower Body","Salı 20:30"],
+           ["PERŞEMBE · 20:30 · 60 DK","Strength · Upper Body","Perşembe 20:30"],
+           ["ÇARŞAMBA · 20:30 · 60 DK","Core & More Sculpt","Çarşamba 20:30"]],
+  reset:  [["CUMARTESİ · 10:00 · 60 DK","Saturday Sculpt","Cumartesi 10:00"],
+           ["ÇARŞAMBA · 07:00 · 60 DK","Gentle Flow + Meditation","Çarşamba 07:00"],
+           ["CUMA · 07:00 · 60 DK","Slow Flow + Meditation","Cuma 07:00"]],
+  sleep:  [["CUMA · 07:00 · 60 DK","Slow Flow + Meditation","Cuma 07:00"],
+           ["PERŞEMBE · 07:00 · 60 DK","Mobility + Meditation","Perşembe 07:00"],
+           ["ÇARŞAMBA · 07:00 · 60 DK","Gentle Flow + Meditation","Çarşamba 07:00"]],
+  ground: [["SALI · 07:00 · 60 DK","Mobility + Meditation","Salı 07:00"],
+           ["PAZARTESİ · 07:00 · 60 DK","Yoga Flow + Meditation","Pazartesi 07:00"],
+           ["PERŞEMBE · 07:00 · 60 DK","Mobility + Meditation","Perşembe 07:00"]]
 };
 
 /* Haftalık canlı program. Tüm dersler 60 dakika.
@@ -1031,7 +1017,9 @@ window.addEventListener("keydown", function(e){ if(e.key === "Escape") drawerKap
       return '<article class="class">'
         + '<p class="class__meta">' + esc(c[0]) + '</p>'
         + '<p class="class__t">' + esc(c[1]) + '</p>'
-        + '<button class="btn btn--quiet btn--sm" data-wa="' + esc("Merhaba, " + c[1] + " dersine katilmak istiyorum.".replace("katilmak","katılmak")) + '">KATIL</button>'
+        + '<button class="btn btn--quiet btn--sm" data-wa="'
+          + esc("Merhaba, " + c[2] + " " + c[1] + " dersine katılmak istiyorum.")
+          + '">KATIL</button>'
         + '</article>';
     }).join("");
   }
@@ -1061,7 +1049,7 @@ window.addEventListener("keydown", function(e){ if(e.key === "Escape") drawerKap
     return false;
   }
 
-  function hucre(v, etiket){
+  function hucre(v, etiket, gun){
     var std = standart(v, etiket) ? " wk__t--std" : "";
     if(!v){
       return '<div class="wk__c wk__c--off wk__c--bos"><span class="wk__t' + std + '">' + etiket
@@ -1070,7 +1058,7 @@ window.addEventListener("keydown", function(e){ if(e.key === "Escape") drawerKap
     var kapali = v[0] === "OFF";
     var katil = kapali ? "" :
       '<button class="btn btn--quiet btn--sm wk__cta" data-wa="'
-      + esc("Merhaba, " + v[1] + " dersine katılmak istiyorum. (" + v[0] + ")")
+      + esc("Merhaba, " + gun + " " + v[0] + " " + v[1] + " dersine katılmak istiyorum.")
       + '">KATIL</button>';
     return '<div class="wk__c' + (kapali ? " wk__c--off" : "") + '">'
          + '<span class="wk__t' + std + '">' + etiket + " · " + esc(v[0]) + '</span>'
@@ -1085,8 +1073,8 @@ window.addEventListener("keydown", function(e){ if(e.key === "Escape") drawerKap
         return '<div class="wk__row' + (bugunMu ? " is-today" : "") + '">'
           + '<div class="wk__d">' + esc(g[0])
           + (bugunMu ? '<span class="wk__today">BUGÜN</span>' : "") + '</div>'
-          + hucre(g[1], (g[1] && g[1][0] === "OFF" && !g[2]) ? "TÜM GÜN" : "SABAH")
-          + hucre(g[2], "AKŞAM")
+          + hucre(g[1], (g[1] && g[1][0] === "OFF" && !g[2]) ? "TÜM GÜN" : "SABAH", g[0])
+          + hucre(g[2], "AKŞAM", g[0])
           + '</div>';
       }).join("");
 })();
