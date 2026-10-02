@@ -73,6 +73,7 @@
   --img-herom:url("img/herom.jpg");
   --img-band:url("img/band.jpg");
   --img-close:url("img/close.jpg");
+  --img-close2:url("img/close2.jpg");
   --img-t1:url("img/t1.jpg");
 }
 
@@ -353,6 +354,29 @@ section{padding:104px 0}
 .close__in{position:relative;width:100%;padding-top:74px;padding-bottom:40px}
 .close h2{max-width:13em;margin:0 auto}
 .close .btn{margin-top:26px}
+/* ana sayfa kapanisi: dikey fotograf.
+   Dar ekranda tam genislik arka plan; genis ekranda sagda dikey panel
+   (oran ~0.9:1) -- bu kadrajda ayaklar dahil tum vucut goruyor.
+   Genis bir banda cover ile oturtuldugunda fotografin ancak %28'i
+   gorunuyordu, o yuzden masaustunde duzen ikiye bolunuyor. */
+.close--split .close__img{background-image:var(--img-close2)}
+@media (max-width:860px){
+  .close--split{flex-direction:column;min-height:0;align-items:stretch}
+  .close--split .close__in{order:1;padding-top:56px;padding-bottom:44px}
+  .close--split .close__img{order:2;position:relative;inset:auto;
+    height:clamp(430px,64svh,640px);height:clamp(430px,64dvh,640px);
+    background-position:center 75%}
+  .close--split .close__scrim{display:none}
+}
+@media (min-width:861px){
+  .close--split{align-items:center;text-align:left;min-height:clamp(640px,80svh,860px);min-height:clamp(640px,80dvh,860px)}
+  /* 42%/760px: 1366x768 gibi kisa ekranlarda bile panel orani vucudun
+     tamamini (kadrajin %67.5'i) aliyor. Daha genis panel ayaklari kesiyor. */
+  .close--split .close__img{left:auto;width:min(42%,760px);background-position:center 80%}
+  .close--split .close__scrim{display:none}
+  .close--split .close__in{padding-top:40px;padding-bottom:40px}
+  .close--split h2{margin:0;max-width:11em}
+}
 
 /* ── giriş / kayıt ── */
 @media (max-width:920px){.auth{grid-template-columns:1fr}}
@@ -681,8 +705,8 @@ section{padding:104px 0}
     </div>
   </section>
 
-  <section class="close">
-    <div class="close__img" role="img" aria-label="Gökyüzüne doğru sıçrayan bir an"></div>
+  <section class="close close--split">
+    <div class="close__img" role="img" aria-label="Çatı terasında denge duruşunda Gizem"></div>
     <div class="close__scrim"></div>
     <div class="wrap close__in">
       <h2>İYİ HİSSET. BUNU BİR RUTİNE DÖNÜŞTÜR.</h2>
