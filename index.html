@@ -72,6 +72,7 @@
   --img-hero:url("img/hero.jpg");
   --img-herom:url("img/herom.jpg");
   --img-band:url("img/band.jpg");
+  --img-class:url("img/class.jpg");
   --img-close:url("img/close.jpg");
   --img-close2:url("img/close2.jpg");
   --img-t1:url("img/t1.jpg");
@@ -220,7 +221,11 @@ section{padding:104px 0}
 .need[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:var(--on-deep)}
 .results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media (max-width:860px){.results{grid-template-columns:1fr}}
-.class{border:1px solid var(--rule);background:#fff;padding:24px 22px 22px;display:flex;flex-direction:column;gap:8px;min-height:198px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.class{border:1px solid var(--rule);background:#fff;padding:24px 22px 22px;display:flex;flex-direction:column;gap:8px;min-height:156px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+/* 198px, karttaki aciklama satiri kaldirilmadan onceki olcuydu; artik
+   meta + baslik + buton var. Tek sutuna dusen dar ekranda bu yukseklik
+   kartin altinda bos bir alan birakiyordu. */
+@media (max-width:760px){.class{min-height:0}}
 .class:hover{border-color:var(--fg);transform:translateY(-2px)}
 .class__meta{font-family:var(--ff-display);font-size:.66rem;font-weight:600;letter-spacing:.15em;color:var(--accent)}
 .class__t{font-family:var(--ff-display);font-size:1.26rem;font-weight:600;letter-spacing:-.03em;line-height:1.12}
@@ -239,6 +244,13 @@ section{padding:104px 0}
   .preview__img{background-position:center 100%}
 }
 .preview__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,20,15,0) 30%,rgba(21,20,15,.44) 66%,rgba(21,20,15,.82) 100%)}
+/* DIKKAT: bu blok temel kuraldan SONRA olmak zorunda — ayni ozgullukte
+   kaynak sirasi belirleyici. Dar ekranda metin blogu bandin %35'inden
+   basliyor, perde ise %30'a kadar seffafti: beyaz metnin olculen kontrasti
+   1.65'ti (esik 4.5). Perde yukari tasindi ve koyulastirildi. */
+@media (max-width:760px){
+  .preview__scrim{background:linear-gradient(180deg,rgba(21,20,15,.06) 0%,rgba(21,20,15,.26) 18%,rgba(21,20,15,.56) 34%,rgba(21,20,15,.70) 56%,rgba(21,20,15,.78) 100%)}
+}
 .preview__in{position:relative;width:100%;padding-top:54px;padding-bottom:54px}
 .preview__meta{font-family:var(--ff-display);font-size:.68rem;font-weight:600;letter-spacing:.17em;color:rgba(255,255,255,.9)}
 .preview h2{color:#fff;margin-top:10px}
@@ -380,7 +392,6 @@ section{padding:104px 0}
 
 /* ── giriş / kayıt ── */
 @media (max-width:920px){.auth{grid-template-columns:1fr}}
-@media (max-width:920px){.side{min-height:220px}}
 @media (max-width:560px){.side{display:none}}
 @media (max-width:920px){.side__in{padding:24px 26px}}
 @media (max-width:920px){.side__quote{font-size:1.2rem}}
